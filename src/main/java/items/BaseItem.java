@@ -14,6 +14,8 @@ public class BaseItem {
     private String itemName;
     private String itemDescription;
     private UUID baseID;
+    private ItemTypes itemType;
+    private RarityTypes itemRarity;
 
     /**
      * @return the itemName
@@ -94,7 +96,4 @@ public class BaseItem {
     {
         WHITE, GREEN, BLUE, PURPLE, ORANGE, RED
     }
-
-    private ItemTypes itemType;
-    private RarityTypes itemRarity;
 }
