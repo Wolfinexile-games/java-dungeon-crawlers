@@ -1,0 +1,20 @@
+{
+	"Items": [
+	{
+		"Weapons": [
+			{
+				"Name" : "Axe",
+				"Damage" : "20"
+			}
+			{
+				"Name" : "Sword",
+				"Damage" : "15"
+			}
+			{
+				"Name" : "Spear",
+				"Damage" : "10"
+			}
+		]
+	}
+]
+}
