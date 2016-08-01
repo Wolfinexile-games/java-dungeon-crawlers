@@ -4,9 +4,9 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.wolfinexile.games.dungeoncrawlers.handlers.GameStateManager;
 import com.wolfinexile.games.dungeoncrawlers.handlers.MyInput;
 import com.wolfinexile.games.dungeoncrawlers.handlers.MyInputProcessor;
+import com.wolfinexile.games.dungeoncrawlers.states.DungeonScreen;
 
 import static com.badlogic.gdx.Gdx.graphics;
 
@@ -16,25 +16,25 @@ public class Game implements ApplicationListener {
 	public static int V_WIDTH = 360;
 	public static int V_HEIGHT = 240;
 	public static int SCALE = 2;
+    public static String DESKTOP_ASSETS_PATH = "core/assets/";
 
 	public static final float STEP = 1/60f;
 	private float accum;
 
 	private SpriteBatch spriteBatch;
-	private OrthographicCamera camera;
-	private OrthographicCamera hud;
-
-	private GameStateManager gameStateManager;
+	private static OrthographicCamera camera;
+	private static OrthographicCamera hud;
+	private DungeonScreen dungeonScreen;
 
 	public SpriteBatch getSpriteBatch() {
 		return spriteBatch;
 	}
 
-	public OrthographicCamera getCamera() {
+	public static OrthographicCamera getCamera() {
 		return camera;
 	}
 
-	public OrthographicCamera getHud() {
+	public static OrthographicCamera getHud() {
 		return hud;
 	}
 
@@ -49,7 +49,8 @@ public class Game implements ApplicationListener {
 		camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
 		hud = new OrthographicCamera();
 		hud.setToOrtho(false, V_WIDTH, V_HEIGHT);
-		gameStateManager = new GameStateManager(this);
+		dungeonScreen = new DungeonScreen();
+        dungeonScreen.show();
 	}
 
 	@Override
@@ -63,10 +64,9 @@ public class Game implements ApplicationListener {
 		while(accum >= STEP) {
 
 			accum -= STEP;
-			gameStateManager.update(STEP);
-			gameStateManager.render();
 			MyInput.update();
 		}
+        dungeonScreen.render(accum);
 	}
 
 	@Override

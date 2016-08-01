@@ -1,8 +1,6 @@
 package com.wolfinexile.games.dungeoncrawlers.logic.turns;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.wolfinexile.games.dungeoncrawlers.handlers.MyInput;
-import com.wolfinexile.games.dungeoncrawlers.logic.Movement;
 
 import java.awt.event.KeyEvent;
 
@@ -47,10 +45,9 @@ public class PlayerTurn implements Turn {
         return movesLeft;
     }
 
-    public void walk(Sprite sprite, int xAmount, int yAmount) {
+    public void walk() {
 
         //walk in given direction
-        sprite.translate(xAmount, yAmount);
         movesLeft = useMove();
     }
 

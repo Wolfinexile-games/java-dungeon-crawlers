@@ -9,8 +9,8 @@ import com.wolfinexile.games.dungeoncrawlers.entities.Entity;
 public class AdjacentTiles {
 
     void getAdjacentTiles(Entity entity, TiledMapTileLayer map) {
-        float x = entity.getX();
-        float y = entity.getY();
+        float x = entity.getSprite().getX();
+        float y = entity.getSprite().getY();
 
         if(map.getCell((int)x , (int)y).getTile().getProperties().containsKey("wall")) {
 

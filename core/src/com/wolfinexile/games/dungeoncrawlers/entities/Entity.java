@@ -12,34 +12,44 @@ public abstract class Entity {
     Sprite sprite;
     Texture texture;
 
-    private float xPos = sprite.getX();
-    private float yPos = sprite.getY();
+    float xPos;
+    float yPos;
 
-    public Entity(int x, int y) {
+    public Entity(int x, int y, String textureFilePath) {
 
-        texture = new Texture(Gdx.files.internal("player_idle.png"));
+        texture = new Texture(Gdx.files.internal(textureFilePath));
         sprite = new Sprite(texture);
+        xPos = sprite.getX();
+        yPos = sprite.getY();
         sprite.setX(x);
         sprite.setY(y);
     }
 
-    public void moveUp() {
-        this.sprite.translateX(15);
-    }
+    public void moveUp() { this.sprite.translateX(15); }
 
-    public void moveDown() {
+    public void moveDown() { this.sprite.translateX(15); }
 
-    }
+    public void moveLeft() { this.sprite.translateX(15); }
 
-    public void moveLeft() {
-
-    }
-
-    public void moveRight() {
-
-    }
+    public void moveRight() { this.sprite.translateX(15); }
 
     public void draw() {
 
+    }
+
+    public float getxPos() {
+        return xPos;
+    }
+
+    public float getyPos() {
+        return yPos;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public Texture getTexture() {
+        return texture;
     }
 }
